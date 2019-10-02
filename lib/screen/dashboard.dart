@@ -46,7 +46,7 @@ class Dashboard extends StatelessWidget {
               children: <Widget>[
                 new Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 180,
+                  height: 150,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
@@ -117,7 +117,7 @@ class Dashboard extends StatelessWidget {
             CardSchedule(
                 "Penawaran",
                 "PT. Sinar Mulia",
-                "Jl. Manukan Indah blok 3A - n...",
+                "Jl. Manukan Indah blok 3A - No.16",
                 "27/08/2019",
                 "08:00 - 12:00",
                 Colors.red),

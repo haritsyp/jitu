@@ -13,7 +13,6 @@ class CardMenu extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       alignment: Alignment.topLeft,
       width: MediaQuery.of(context).size.width,
-      height: 257,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(25)),
@@ -41,27 +40,35 @@ class CardMenu extends StatelessWidget {
                   ),
                 ),
               ),
-              new Container(
-                  margin: EdgeInsets.only(left: 25),
-                  alignment: Alignment.topLeft,
-                  child: new Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(name,
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.grey[800],
-                              fontFamily: 'Asap',
-                              fontWeight: FontWeight.bold)),
-                      SizedBox(height: 6),
-                      Text(department,
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: new Color.fromRGBO(143, 143, 143, 1),
-                              fontFamily: 'Asap',
-                              fontWeight: FontWeight.w500)),
-                      SizedBox(height: 7),
-                      ButtonTheme(
+              new Flexible(
+                  child: new Container(
+                padding: EdgeInsets.only(left: 15),
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(name,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.grey[800],
+                            fontFamily: 'Asap',
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 6),
+                    new Text(
+                      'Manajer Marketing',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      softWrap: false,
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey[500],
+                          fontFamily: 'Asap',
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 7),
+                    new Container(
+                      width: 110,
+                      child: ButtonTheme(
                         height: 43,
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
@@ -72,18 +79,30 @@ class CardMenu extends StatelessWidget {
                           child: new Container(
                             alignment: Alignment.centerLeft,
                             child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Text(
-                                  'Absen',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 18),
+                                Container(
+                                  child: new RichText(
+                                    overflow: TextOverflow.ellipsis,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Absen',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 10,
                                 ),
                                 new Container(
-                                  width: 33,
-                                  height: 33,
+                                  width: 30,
+                                  height: 30,
                                   decoration: BoxDecoration(
                                       color: Color.fromRGBO(28, 151, 195, 1),
                                       borderRadius: BorderRadius.all(
@@ -97,22 +116,25 @@ class CardMenu extends StatelessWidget {
                             ),
                           ),
                         ),
-                      )
-                    ],
-                  )),
+                      ),
+                    )
+                  ],
+                ),
+              )),
             ],
           ),
           new SizedBox(height: 20),
-          new Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              ButtonMenu(Icons.date_range, "Absensi"),
-              ButtonMenu(Icons.compare_arrows, "Shift"),
-              ButtonMenu(Icons.attach_money, "Reimbuse"),
-              ButtonMenu(Icons.assignment_ind, "Cuti"),
-            ],
-          )
+          new Expanded(
+              flex: 0,
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  ButtonMenu(Icons.date_range, "Absensi"),
+                  ButtonMenu(Icons.compare_arrows, "Shift"),
+                  ButtonMenu(Icons.attach_money, "Reimbuse"),
+                  ButtonMenu(Icons.assignment_ind, "Cuti"),
+                ],
+              )),
         ],
       ),
     );
